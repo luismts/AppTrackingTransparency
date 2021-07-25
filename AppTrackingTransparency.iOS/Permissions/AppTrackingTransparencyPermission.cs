@@ -24,6 +24,7 @@ namespace AppTrackingTransparency.iOS
             return Task.FromResult(status);
         }
 
+        // This method checks if current status of the permission
         public override Task<PermissionStatus> CheckStatusAsync()
         {
             return Task.FromResult(Convert(ATTrackingManager.TrackingAuthorizationStatus));
