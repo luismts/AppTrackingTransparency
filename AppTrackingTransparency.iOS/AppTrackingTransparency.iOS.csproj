@@ -63,7 +63,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AppTrackingTransparencyPermission.cs" />
+    <Compile Include="Permissions\AppTrackingTransparencyPermission.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
