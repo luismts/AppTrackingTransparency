@@ -7,21 +7,14 @@ using static Xamarin.Essentials.Permissions;
 
 namespace AppTrackingTransparency.iOS
 {
-    public class AppTrackingTransparencyPermission : BasePlatformPermission, IPermission
+    public class AppTrackingTransparencyPermission : BasePlatformPermission, IAppTrackingTransparencyPermission
     {
         protected override Func<IEnumerable<string>> RequiredInfoPlistKeys => () =>  new string[] { "NSUserTrackingUsageDescription" };
 
         // Requests the user to accept or deny a permission
-        public override Task<PermissionStatus> RequestAsync()
+        public void RequestAsync(Action<PermissionStatus> completion)
         {
-            PermissionStatus status = PermissionStatus.Unknown;
-
-            ATTrackingManager.RequestTrackingAuthorization((result) =>
-            {
-                status = Convert(result);
-            });
-
-            return Task.FromResult(status);
+            ATTrackingManager.RequestTrackingAuthorization((result) => completion(Convert(result)));
         }
 
         // This method checks if current status of the permission
@@ -47,5 +40,6 @@ namespace AppTrackingTransparency.iOS
             }
         }
 
+       
     }
 }

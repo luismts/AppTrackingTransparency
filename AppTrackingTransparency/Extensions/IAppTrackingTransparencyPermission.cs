@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace XEssentialsTest.Extensions
 {
-    public interface IPermission
+    public interface IAppTrackingTransparencyPermission
     {
         /// <summary>
         /// This method checks if current status of the permission
@@ -15,6 +16,6 @@ namespace XEssentialsTest.Extensions
         /// Requests the user to accept or deny a permission
         /// </summary>
         /// <returns></returns>
-        Task<PermissionStatus> RequestAsync();
+        void RequestAsync(Action<PermissionStatus> completion);
     }
 }

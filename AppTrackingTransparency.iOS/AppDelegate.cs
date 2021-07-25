@@ -25,7 +25,7 @@ namespace AppTrackingTransparency.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
-            Xamarin.Forms.DependencyService.Register<IPermission, AppTrackingTransparencyPermission>();
+            Xamarin.Forms.DependencyService.Register<IAppTrackingTransparencyPermission, AppTrackingTransparencyPermission>();
             LoadApplication(new App());
 
             

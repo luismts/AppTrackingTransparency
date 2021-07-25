@@ -19,16 +19,21 @@ namespace AppTrackingTransparency
         {
             if(DeviceInfo.Platform == DevicePlatform.iOS)
             {
-                var appTrackingTransparencyPermission = DependencyService.Get<IPermission>();
+                var appTrackingTransparencyPermission = DependencyService.Get<IAppTrackingTransparencyPermission>();
                 var status = await appTrackingTransparencyPermission.CheckStatusAsync();
 
                 if (status != PermissionStatus.Granted)                
-                    status = await appTrackingTransparencyPermission.RequestAsync();
-                
-                if (status == PermissionStatus.Granted)
-                {
-                    // app center or other implementations
-                }                               
+                    appTrackingTransparencyPermission.RequestAsync(s => MyImplementation(s));
+                else
+                    MyImplementation(status);                                           
+            }
+        }
+
+        private void MyImplementation(PermissionStatus status)
+        {
+            if (status == PermissionStatus.Granted)
+            {
+                // app center or other implementations
             }
         }
 
