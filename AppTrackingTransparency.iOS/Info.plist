@@ -35,6 +35,6 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>The app would like to track your app usage in order to improve it.</string>
+	<string>This app would like to track your app usage in order to improve the product.</string>
 </dict>
 </plist>
